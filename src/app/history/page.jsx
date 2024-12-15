@@ -1,38 +1,45 @@
-import { Box, Container, Heading, Text, VStack } from '@chakra-ui/react';
+"use client";
+import { Container, Flex, Heading, Text, VStack } from '@chakra-ui/react';
 import EventBookingCard from '@/components/fe/EventBookingCard';
+import { useEffect, useState } from 'react';
+import { fetchOrderHistory } from '@/api';
+import { BreadcrumbLink, BreadcrumbRoot, BreadcrumbCurrentLink } from '@/components/ui/breadcrumb';
+import useStore from '@/store/useStore';
 
 export default function OrderPage() {
-  // Example bookings data
-  const bookings = [
-    {
-      eventName: 'Music Concert',
-      eventDate: '2023-12-01',
-      eventStartTime: '19:00',
-      eventEndTime: '22:00',
-      eventVenue: 'Delhi Stadium',
-      eventImage: '/event_pic.avif',
-      totalAmount: 1500,
-      ticketQuantities: {
-        VIP: 1,
-        Regular: 2,
-      },
-    },
-    {
-      eventName: 'Art Exhibition',
-      eventDate: '2023-12-05',
-      eventStartTime: '11:00',
-      eventEndTime: '15:00',
-      eventVenue: 'Art Gallery',
-      eventImage: '/event_pic1.avif',
-      totalAmount: 600,
-      ticketQuantities: {
-        Regular: 2,
-      },
-    },
-  ];
+  const [bookings, setBookings] = useState([]);
+  const isAuthenticated = useStore((state) => state.isAuthenticated);
+
+  useEffect(() => {
+    async function loadBookings() {
+      try {
+        const data = await fetchOrderHistory();
+        setBookings(data);
+      } catch (error) {
+        console.error('Failed to fetch order history', error);
+      }
+    }
+    if (isAuthenticated) {
+      loadBookings();
+    }
+  }, [isAuthenticated, setBookings]);
+
+  if (!isAuthenticated) {
+    return (
+      <Flex align="center" justify="center" h="75vh">
+        <Heading as="h1" size="xl" mb={6} textAlign="center">
+          Please log in to view your orders...
+        </Heading>
+      </Flex>
+    )
+  }
 
   return (
     <Container p={4} maxW="container.md">
+      <BreadcrumbRoot separator="/" separatorGap={2} mb={5}>
+        <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        <BreadcrumbCurrentLink>Orders</BreadcrumbCurrentLink>
+      </BreadcrumbRoot>
       <Heading as="h1" size="xl" mb={6} textAlign="center">
         Your Events
       </Heading>

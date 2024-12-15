@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from '../ui/menu';
-import { BreadcrumbCurrentLink } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { LuChevronDown } from 'react-icons/lu';
 
 export default function CityMenu({ cities, currentCity }) {
@@ -10,15 +10,15 @@ export default function CityMenu({ cities, currentCity }) {
   return (
     <MenuRoot>
       <MenuTrigger>
-        <BreadcrumbCurrentLink display="flex" alignItems="center">
+        <Box display="flex" alignItems="center">
           {city}
           <LuChevronDown style={{ marginLeft: '5px' }} />
-        </BreadcrumbCurrentLink>
+        </Box>
       </MenuTrigger>
       <MenuContent>
         {cities.map((city) => (
-          <MenuItem key={city} value={city} as={Link} href={`/city/${city.toLowerCase()}/events`}>
-            {city}
+          <MenuItem key={city.id} value={city} as={Link} href={`/city/${city.id}/events`}>
+            {city.name}
           </MenuItem>
         ))}
       </MenuContent>
