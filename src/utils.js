@@ -28,3 +28,20 @@ export function loadRazorpayScript() {
     document.body.appendChild(script);
   });
 }
+
+export function getGoogleAuthUrl(currentUrl) {
+  const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+  const redirectUri = process.env.NEXT_PUBLIC_GOOGLE_REDIRECT_URI;
+  const scope = process.env.NEXT_PUBLIC_GOOGLE_SCOPE;
+
+  return `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${encodeURIComponent(scope)}&state=${encodeURIComponent(currentUrl)}`;
+}
+
+export function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+export function areFieldsFilled(fields) {
+  return fields.every(field => field.trim() !== '');
+}
