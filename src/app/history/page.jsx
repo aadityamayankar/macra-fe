@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { Container, Flex, Heading, Text, VStack } from '@chakra-ui/react';
 import EventBookingCard from '@/components/fe/EventBookingCard';
 import { useEffect, useState } from 'react';

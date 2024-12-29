@@ -45,9 +45,11 @@ export default function LoginForm() {
   };
 
   const handleGoogleLogin = () => {
-    const currentUrl = window.location.href;
-    const googleAuthUrl = getGoogleAuthUrl(currentUrl);
-    window.location.href = googleAuthUrl;
+    if (typeof window !== 'undefined') {
+      const currentUrl = window.location.href;
+      const googleAuthUrl = getGoogleAuthUrl(currentUrl);
+      window.location.href = googleAuthUrl;
+    }
   };
 
   return (
