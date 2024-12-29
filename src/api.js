@@ -1,5 +1,5 @@
 export async function fetchCities() {
-  const response = await fetch(NEXT_PUBLIC_API_URL_USER+'/api/v1/cities', {
+  const response = await fetch(process.env.NEXT_PUBLIC_API_URL_USER+'/api/v1/cities', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -10,7 +10,7 @@ export async function fetchCities() {
 }
 
 export async function fetchCityById(cityId) {
-  const response = await fetch(NEXT_PUBLIC_API_URL_USER+`/api/v1/cities/${cityId}`, {
+  const response = await fetch(process.env.NEXT_PUBLIC_API_URL_USER+`/api/v1/cities/${cityId}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ export async function fetchCityById(cityId) {
 }
 
 export async function fetchEventsByCity(cityName) {
-  const response = await fetch(NEXT_PUBLIC_API_URL_USER+`/api/v1/events?city=${cityName}`, {
+  const response = await fetch(process.env.NEXT_PUBLIC_API_URL_USER+`/api/v1/events?city=${cityName}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ export async function fetchEventsByCity(cityName) {
 }
 
 export async function fetchEventById(eventId) {
-  const response = await fetch(NEXT_PUBLIC_API_URL_USER+`/api/v1/events/${eventId}`, {
+  const response = await fetch(process.env.NEXT_PUBLIC_API_URL_USER+`/api/v1/events/${eventId}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ export async function fetchEventById(eventId) {
 }
 
 export async function loginUser(email, password) {
-  const response = await fetch(NEXT_PUBLIC_API_URL_AUTHN+'/auth/login', {
+  const response = await fetch(process.env.NEXT_PUBLIC_API_URL_AUTHN+'/auth/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ export async function loginUser(email, password) {
 }
 
 export async function validateSession() {
-  const response = await fetch(NEXT_PUBLIC_API_URL_USER+'/api/v1/auth/session', {
+  const response = await fetch(process.env.NEXT_PUBLIC_API_URL_USER+'/api/v1/auth/session', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ export async function validateSession() {
 }
 
 export async function fetchUserProfile() {
-  const response = await fetch(NEXT_PUBLIC_API_URL_USER+'/api/v1/my-profile', {
+  const response = await fetch(process.env.NEXT_PUBLIC_API_URL_USER+'/api/v1/my-profile', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ export async function fetchUserProfile() {
 }
 
 export async function fetchOrderHistory() {
-  const response = await fetch(NEXT_PUBLIC_API_URL_USER+'/api/v1/order-history', {
+  const response = await fetch(process.env.NEXT_PUBLIC_API_URL_USER+'/api/v1/order-history', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ export async function fetchOrderHistory() {
 }
 
 export async function bookTickets(eventId, ticketId, quantity) {
-  const response = await fetch(NEXT_PUBLIC_API_URL_USER+'/api/v1/bookings/book', {
+  const response = await fetch(process.env.NEXT_PUBLIC_API_URL_USER+'/api/v1/bookings/book', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ export async function bookTickets(eventId, ticketId, quantity) {
 }
 
 export async function logoutUser() {
-  const response = await fetch(NEXT_PUBLIC_API_URL_AUTHN+'/auth/logout', {
+  const response = await fetch(process.env.NEXT_PUBLIC_API_URL_AUTHN+'/auth/logout', {
     method: 'GET',
     credentials: 'include',
   });
@@ -144,7 +144,7 @@ export async function logoutUser() {
 }
 
 export async function registerUser(email, password) {
-  const response = await fetch(NEXT_PUBLIC_API_URL_AUTHN+'/auth/register', {
+  const response = await fetch(process.env.NEXT_PUBLIC_API_URL_AUTHN+'/auth/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
