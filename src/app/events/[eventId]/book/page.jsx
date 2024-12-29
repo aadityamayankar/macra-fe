@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { useEffect, useState, use } from 'react';
 import { Container, Heading, Text, VStack, Grid, GridItem, Box, Image, Button, HStack, StackSeparator } from '@chakra-ui/react';
 import { BsCalendarDate } from 'react-icons/bs';

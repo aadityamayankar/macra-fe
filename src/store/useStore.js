@@ -10,6 +10,8 @@ const useStore = create(zukeeper((set) => ({
   setUserProfile: (userProfile) => set({ userProfile }),
 })));
 
-window.store = useStore;
+if (typeof window !== 'undefined') {
+  window.store = useStore;
+}
 
 export default useStore;
