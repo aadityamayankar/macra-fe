@@ -2,6 +2,7 @@ import { Box, Flex, Text, VStack, Image, SimpleGrid } from '@chakra-ui/react';
 import { BsCalendarDate } from 'react-icons/bs';
 import { IoMdTime } from 'react-icons/io';
 import { IoLocationOutline } from 'react-icons/io5';
+import { secondsSinceEpochToDate, secondsSinceEpochToTime } from '@/utils';
 
 export default function EventBookingCard({ booking }) {
   const eventDate = secondsSinceEpochToDate(booking.eventStartDate);
