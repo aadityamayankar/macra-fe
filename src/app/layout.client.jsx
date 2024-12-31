@@ -7,7 +7,7 @@ import { Box, Flex } from "@chakra-ui/react";
 import { Quicksand } from "next/font/google";
 import useStore from '@/store/useStore';
 import { validateSession, fetchUserProfile } from '@/api';
-import { Analytics } from '@vercel/analytics';
+import { Analytics } from "@vercel/analytics/react";
 
 const quicksand = Quicksand({ subsets: ["latin"], display: "swap", weight: '600' });
 
