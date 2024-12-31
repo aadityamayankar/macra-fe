@@ -105,7 +105,7 @@ export default function BookEventPage({ params }) {
       const bookingResponse = await bookTickets(decodedEventId, ticketId, quantity);
 
       const options = {
-        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY, // Access the Razorpay key from environment variables
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY,
         name: 'Event Booking',
         description: 'Ticket Booking',
         order_id: bookingResponse.id,
