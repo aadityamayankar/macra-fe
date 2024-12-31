@@ -11,6 +11,12 @@ import { Analytics } from '@vercel/analytics';
 
 const quicksand = Quicksand({ subsets: ["latin"], display: "swap", weight: '600' });
 
+export const metadata = {
+  icons: {
+    icon: '/logo.svg',
+  },
+};
+
 export default function RootLayout({ children }) {
   const setIsAuthenticated = useStore((state) => state.setIsAuthenticated);
   const setUserProfile = useStore((state) => state.setUserProfile);
