@@ -1,4 +1,3 @@
-'use client';
 import { useEffect } from 'react';
 import Header from "@/components/fe/Header";
 import { Provider } from "@/components/ui/provider";
