@@ -2,6 +2,8 @@
 
 Macra is a web application for booking tickets to live events and concerts. It allows users to browse events by city, view event details, book tickets, and view their order history. 
 
+<img src="https://github.com/user-attachments/assets/54cb41d1-e9ad-4959-88c4-bc79c143d32b" width="100%" />
+
 ## Table of Contents
 
 - [Features](#features)
